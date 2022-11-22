@@ -183,13 +183,48 @@
             </ul>
         </div>
         </div>
-	Text Translation
+	Text Translation <br><br>
+	
+	Input your Text in the box below: <br>
+	
+	<textarea id="userText" name="userText" rows="4" cols="50"></textarea><br>
+	Choose Language You Are Translating From: 
+	<select id ="originalLanguage" name="originalLanguage">
+		<option value ="English">English</option>
+		<option value ="Spanish">Spanish</option>
+		<option value ="Japanese">Japanese</option>
 
+	</select><br><br>
+	Choose Language To Translate To:
+	<select id ="translatedLanguage" name="translatedLanguage">
+		<option value ="English">English</option>
+		<option value ="Spanish">Spanish</option>
+		<option value ="Japanese">Japanese</option>
+
+	</select><br><br>
+	<button onclick="translateUserText()" >Click To Translate!</button>
+	
+	<br><br>
+	Translated Text:<br>
+	<textarea id="outputText" name="outputText" rows="4" cols="50"></textarea>
+
+
+	
   <script>
 	var hamburger = document.querySelector(".hamburger");
     hamburger.addEventListener("click", function(){
-        document.querySelector("body").classList.toggle("active");
+    document.querySelector("body").classList.toggle("active");
     })
+
+	function translateUserText() {
+	   let input = document.getElementById("userText").value; 
+	   let originalLanguage = document.getElementById("originalLanguage").value; 
+	   let selectedLang = document.getElementById("translatedLanguage").value; 
+	   //alert(selectedLang); 
+	   //alert(input); 
+
+	}
+	
   </script>
 </body>
 </html>
