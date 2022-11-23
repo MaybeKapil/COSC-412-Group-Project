@@ -18,7 +18,7 @@ template.innerHTML = `
             <!--menu item-->
             <ul>
                 <li>
-                    <a href="homeInfo.html">
+                    <a href="index.html">
                     <span class="icon"><i class="fas fa-home"></i></span>
                         <span class="item">Home and Infromation</span>
                     </a>
