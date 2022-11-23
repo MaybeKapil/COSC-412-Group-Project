@@ -13,23 +13,36 @@
     
     <main class="page-content">
         File Translation
+        <br> <br>
 
         Choose language you are translating from: 
         <select id ="originalLanguage" name="originalLanguage">
         </select><br><br>
-        <form action="uploadFile">
-            <input type="file" id="myFile" name="filename">
-            <input type="submit">
-          </form>
+        
+        <script src="/js/dragAndDrop.js"></script>
+        <div
+            id="drop_zone"
+            class="disableSelect"
+            ondrop="dropHandler(event);"
+            ondragover="dragOverHandler(event);"
+            >
+            <p>Drag & Drop to Upload File <br>OR</p>
+            <div class = "uploadFileButton">
+                <form action="uploadFile">
+                    <input type="file" id="myFile" name="filename">
+                </form>
+            </div>
+        </div>
+
         <br><br>
         Choose language to translate to:
         <select id ="translatedLanguage" name="translatedLanguage">
         </select><br><br>
-        <button onclick="translateUserText()" >Click to Translate!</button>
+        <button onclick="translateUserText()">Click to Translate!</button>
         
         <br><br>
         Translated Text:<br>
-        <textarea id="outputText" name="outputText" rows="4" cols="60" disabled placeholder=" Translation"></textarea>
+        <textarea id="outputText" name="outputText" rows="6" cols="60" disabled placeholder=" Translation" style="font-size: 16pt"></textarea>
 
     </main>
     
