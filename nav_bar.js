@@ -36,9 +36,9 @@ template.innerHTML = `
                     </a>
                 </li>
                 <li>
-                    <a href="otherCalcs.html">
+                    <a href="currencyConvertor.html">
                         <span class="icon"><i class="fas fa-calculator"></i></span>
-                        <span class="item">Other Calculators/Converters</span>
+                        <span class="item">Currency Convertor</span>
                     </a>
                 </li>
                 <li>
