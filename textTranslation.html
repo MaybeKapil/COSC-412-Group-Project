@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,34 +10,27 @@
 </head>
 <body>
 	
-    <script src="nav_bar.js" type="text/javascript"></script>
+    <script src="/js/nav_bar.js" type="text/javascript"></script>
     
     <main>Text Translation <br><br>
 	
-        Input your Text in the box below: <br>
-        
-        <textarea id="userText" name="userText" rows="4" cols="50"></textarea><br>
-        Choose Language You Are Translating From: 
+        Choose language you are translating from: 
         <select id ="originalLanguage" name="originalLanguage">
-            <option value ="English">English</option>
-            <option value ="Spanish">Spanish</option>
-            <option value ="Japanese">Japanese</option>
-
         </select><br><br>
-        Choose Language To Translate To:
+        <textarea id="userText" name="userText" rows="4" cols="60" placeholder=" Enter text"></textarea><br>
+        <br><br>
+        Choose language to translate to:
         <select id ="translatedLanguage" name="translatedLanguage">
-            <option value ="English">English</option>
-            <option value ="Spanish">Spanish</option>
-            <option value ="Japanese">Japanese</option>
-
         </select><br><br>
-        <button onclick="translateUserText()" >Click To Translate!</button>
+        <button onclick="translateUserText()" >Click to Translate!</button>
         
         <br><br>
         Translated Text:<br>
-        <textarea id="outputText" name="outputText" rows="4" cols="50"></textarea>
+        <textarea id="outputText" name="outputText" rows="4" cols="60" disabled placeholder=" Translation"></textarea>
     </main>
     
-    <script src="menuToggle.js"></script>
+    <script src="/js/menuToggle.js"></script>
+    <script src="/js/langList.js"></script>
+    <script src="/js/populateLangDropDown.js"></script>
 </body>
 </html>
