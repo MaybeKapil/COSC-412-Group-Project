@@ -34,25 +34,25 @@
                     </a>
                 </li>
                 <li>
-                    <a href="textTranslation.html" >
+                    <a href="textTranslation.html" class="active">
                         <span class="icon"><i class="fas fa-retweet"></i></span>
                         <span class="item">Text Translation</span>
                     </a>
                 </li>
                 <li>
-                    <a href="fileTranslation.html" >
+                    <a href="fileTranslation.html">
                         <span class="icon"><i class="	fas fa-file"></i></span>
                         <span class="item">File Traslation</span>
                     </a>
                 </li>
                 <li>
-                    <a href="otherCalcs.html" >
+                    <a href="otherCalcs.html">
                         <span class="icon"><i class="fas fa-calculator"></i></span>
                         <span class="item">Other Calculators/Converters</span>
                     </a>
                 </li>
                 <li>
-                    <a href="roadmap.html" class="active">
+                    <a href="roadmap.html">
                         <span class="icon"><i class="fas fa-calendar"></i></span>
                         <span class="item">Roadmap</span>
                     </a>
@@ -66,11 +66,36 @@
             </ul>
         </div>
     </div>
-	
+    
     <main>
-        Roadmap
-    </main>
+        Text Translation
 
-  <script src="menuToggle.js"></script>
+        Text Translation <br><br>
+	
+        Input your Text in the box below: <br>
+        
+        <textarea id="userText" name="userText" rows="4" cols="50"></textarea><br>
+        Choose Language You Are Translating From: 
+        <select id ="originalLanguage" name="originalLanguage">
+            <option value ="English">English</option>
+            <option value ="Spanish">Spanish</option>
+            <option value ="Japanese">Japanese</option>
+
+        </select><br><br>
+        Choose Language To Translate To:
+        <select id ="translatedLanguage" name="translatedLanguage">
+            <option value ="English">English</option>
+            <option value ="Spanish">Spanish</option>
+            <option value ="Japanese">Japanese</option>
+
+        </select><br><br>
+        <button onclick="translateUserText()" >Click To Translate!</button>
+        
+        <br><br>
+        Translated Text:<br>
+        <textarea id="outputText" name="outputText" rows="4" cols="50"></textarea>
+    </main>
+    
+    <script src="menuToggle.js"></script>
 </body>
 </html>
