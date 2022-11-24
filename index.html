@@ -2,20 +2,48 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TU Translate</title>
+    <script src="js/swapLanguages.js" type="text/javascript"></script>
 </head>
 <body>
 	
-    <script src="/js/nav_bar.js" type="text/javascript"></script>
+    <script src="js/nav_bar.js" type="text/javascript"></script>
+    
+    <main>Text Translation <br><br>
+	
+        Choose language to translating from: 
+        <select name="srcLang">
+        </select>
+        <br><br>
+        <textarea id="userText" name="userText" style="width:100%; font-size: 16pt" rows="6" cols="60" placeholder=" Enter text"></textarea><br>
+        <br>
+        <div class="swapSrcAndDstLang">
+            <button class="swapSrcAndDstLangButton" onclick="swapLang()">
+                <img src="svg/swap_vert.svg" alt="Swap Icon"/>
+                Swap Languages
+            </button>
+        </div>
+        <br>
+        Choose language to translate to:
+        <select name="dstLang">
+        </select>
+        <br><br>
+        <button onclick="translateUserText()" >Click to Translate!</button>
+        
+        
 
-    <main>
-        HOME PAGE
+        <br><br>
+        Translated Text: 
+        <br>
+        <textarea id="outputText" name="outputText" style="width:100%; font-size: 16pt" rows="6" cols="60" disabled placeholder=" Translation" ></textarea>
     </main>
-
-    <script src="/js/menuToggle.js"></script>
+    
+    <script src="js/menuToggle.js"></script>
+    <script src="js/langList.js"></script>
+    <script src="js/populateLangDropDown.js"></script>
 </body>
 </html>
