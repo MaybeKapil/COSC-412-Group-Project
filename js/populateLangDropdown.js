@@ -1,14 +1,22 @@
-const selectTag = document.querySelectorAll("select");
+const create = (tag = "div", options = {}, children = []) => {
+    const node = Object.assign(document.createElement(tag), options);
+    if (children.length) node.append(...children);
+    return node;
+}
 
-selectTag.forEach((tag, id) => {
-    for(let country_code in countries) {
-        let selected;
-        if(id == 0 && country_code =="auto") {
-            selected = "selected";
-        } else if (id == 1 && country_code == "en") {
-            selected = "selected";
-        }
-        let option = `<option value="${country_code}" ${selected}>${countries[country_code]}</option>`;
-        tag.insertAdjacentHTML("beforeend", option);
-    }
-})
+const selects = [
+    { type: "src", def: "auto" },
+    { type: "dst", def: "en-US" },
+];
+
+for (const [i, { type, def }] of selects.entries()) {
+    document.querySelector(`select[name=${type}Lang]`).append(
+        ...Object.entries(countries).slice(i).map(
+            ([code, name]) => {
+                const settings = { value: code, textContent: name };
+                if (code === def) settings.selected = true;
+                return create("option", settings)
+            }
+        )
+    );
+}
