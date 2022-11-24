@@ -13,20 +13,14 @@ template.innerHTML = `
     </div>
         <div class="sidebar">
             <div class="profile">
-                    <img src="https://www.pngkey.com/png/detail/142-1424655_format-towson-university-tiger.png" alt="Format - Towson University Tiger@pngkey.com">
+                    <img src="png/towson_university_tiger_logo.png" alt="Format - Towson University Tiger Logo">
             </div>
             <!--menu item-->
             <ul>
                 <li>
                     <a href="index.html">
-                    <span class="icon"><i class="fas fa-home"></i></span>
-                        <span class="item">Home and Infromation</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="textTranslation.html" >
-                        <span class="icon"><i class="fas fa-retweet"></i></span>
-                        <span class="item">Text Translation</span>
+                    <span class="icon"><i class="fas fa-retweet"></i></span>
+                    <span class="item">Text Translation</span>
                     </a>
                 </li>
                 <li>
