@@ -20,7 +20,7 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    width: 225px;
+    width: 245px;
     height: 100%;
     padding: 20px 0;
     transition: all 0.5s ease;
@@ -108,7 +108,7 @@ body{
 }
 
 body.active .header_nav_bar .sidebar{
-    left: -225px;
+    left: -245px;
 }
 
 body.active .header_nav_bar .section{
@@ -117,7 +117,7 @@ body.active .header_nav_bar .section{
 }
 
 main {
-    margin-left: 225px;
+    margin-left: 245px;
     padding: 10px;
     transition: all 0.5s ease;
     
