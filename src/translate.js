@@ -5,7 +5,7 @@ const translate = new AWS.Translate();
 
 let sourceLang = document.getElementById("srcLang").value;
 let destinationLang = document.getElementById("dstLang").value;
-let srcText = document.getElementById("userText").value;
+let srcText = document.getElementById("userTextArea").value;
 
 /*
 let sourceLang = 'auto';
