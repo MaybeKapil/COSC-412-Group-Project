@@ -16,7 +16,7 @@
     <main>Text Translation <br><br>
 	
         Choose language to translating from: 
-        <select name="srcLang">
+        <select name="srcLang" id="srcLangSelect">
         </select>
         <br><br>
         <textarea id="userText" name="userText" style="width:100%; font-size: 16pt" rows="6" cols="60" placeholder=" Enter text"></textarea><br>
@@ -29,7 +29,7 @@
         </div>
         <br>
         Choose language to translate to:
-        <select name="dstLang">
+        <select name="dstLang" id="dstLangSelect">
         </select>
         <br><br>
         <button onclick="translateUserText()" >Click to Translate!</button>
