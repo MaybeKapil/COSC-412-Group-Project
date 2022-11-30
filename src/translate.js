@@ -1,5 +1,4 @@
 function translateUserText() {
-  console.log("button was clicked");
 
   AWS.config.region = "us-east-1";
   AWS.config.credentials = new AWS.Credentials('AKIASDZ6DZUKT2KV2YWL', 'NYQtIU8CfUwtQ3tM+qLbJbWi69OTRvOe9TZyKOdx');
@@ -27,7 +26,6 @@ function translateUserText() {
     }
     else {
       document.getElementById("outputTextArea").value = data['TranslatedText'];
-      console.log(data['TranslatedText']);
     }
   });
 }
