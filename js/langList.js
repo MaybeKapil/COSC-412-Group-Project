@@ -1,6 +1,6 @@
 // languages supported by Amazon Translate as of Nov. 29, 2022
 
-const countries = {
+const languages = {
 "auto": "Detect Language",
 "af": "Afrikaans",
 "sq": "Albanian",
