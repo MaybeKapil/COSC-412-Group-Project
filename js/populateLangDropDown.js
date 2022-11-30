@@ -6,12 +6,12 @@ const create = (tag = "div", options = {}, children = []) => {
 
 const selects = [
     { type: "src", def: "auto" },
-    { type: "dst", def: "en-US" },
+    { type: "dst", def: "en" },
 ];
 
 for (const [i, { type, def }] of selects.entries()) {
     document.querySelector(`select[name=${type}Lang]`).append(
-        ...Object.entries(countries).slice(i).map(
+        ...Object.entries(languages).slice(i).map(
             ([code, name]) => {
                 const settings = { value: code, textContent: name };
                 if (code === def) settings.selected = true;
