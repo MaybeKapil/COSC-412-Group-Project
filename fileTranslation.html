@@ -52,7 +52,32 @@
         <br><br>
         Translated Text:<br>
         <textarea id="outputTextArea" name="outputText" style="width:100%; font-size: 16pt" rows="6" cols="60" disabled placeholder=" Translation" ></textarea>
+    
+        <div>
+            testing if it can read files
+        </div>
+        <input type="file" name="inputfile"
+        id="inputfile">
+        <br>
+    
+        <pre id="output"></pre>
+    
+        <script type="text/javascript">
+        document.getElementById('inputfile')
+            .addEventListener('change', function() {
+            
+            var fr=new FileReader();
+            fr.onload=function(){
+                document.getElementById('output')
+                        .textContent=fr.result;
+            }
+            
+            fr.readAsText(this.files[0]);
+        })
+        </script>
     </main>
+
+   
     
     <script src="js/menuToggle.js"></script>
     <script src="js/langList.js"></script>
