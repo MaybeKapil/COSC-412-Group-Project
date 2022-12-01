@@ -9,11 +9,6 @@ function translateUserText() {
   let destinationLang = document.getElementById("dstLangSelect").value;
   let srcText = document.getElementById("userTextArea").value;
 
-  /*
-  let sourceLang = 'auto';
-  let destinationLang = 'ar';
-  let srcText = 'happy birthday to you';*/
-
   let params = {
     SourceLanguageCode: sourceLang,
     TargetLanguageCode: destinationLang,
