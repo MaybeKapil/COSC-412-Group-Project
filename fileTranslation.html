@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TU Translate</title>
+    <script src="js/swapLanguages.js" type="text/javascript"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1264.0.js"></script>
+    <script src="src/translate.js"></script>
 </head>
 <body>
     <script src="js/nav_bar.js" type="text/javascript"></script>
@@ -16,7 +19,7 @@
         <br> <br>
 
         Choose language you are translating from: 
-        <select name="srcLang" required>
+        <select name="srcLang" id="srcLangSelect">
         </select><br><br>
         
         <script src="js/dragAndDrop.js"></script>
@@ -29,10 +32,12 @@
             <p>Drag & Drop to Upload File <br>OR</p>
             <div class = "uploadFileButton">
                 <form action="uploadFile">
-                    <input type="file" id="myFile" name="filename">
+                    <input type="file" id="inputFile" name="myFile">
                 </form>
             </div>
         </div>
+
+        <textarea id="userTextArea" name="userText" style="width:100%; font-size: 16pt" rows="6" cols="60" placeholder=" Enter text"></textarea><br>
 
         <br>
         
@@ -45,34 +50,28 @@
 
         <br>
         Choose language to translate to:
-        <select name="dstLang" required>
+        <select name="dstLang" id="dstLangSelect">
         </select><br><br>
         <button onclick="translateUserText()">Click to Translate!</button>
         
         <br><br>
         Translated Text:<br>
         <textarea id="outputTextArea" name="outputText" style="width:100%; font-size: 16pt" rows="6" cols="60" disabled placeholder=" Translation" ></textarea>
-    
-        <div>
-            testing if it can read files
-        </div>
-        <input type="file" name="inputfile"
-        id="inputfile">
-        <br>
-    
-        <pre id="output"></pre>
-    
+        
         <script type="text/javascript">
-        document.getElementById('inputfile')
+        document.getElementById("userTextArea").style.display="none";
+        document.getElementById('inputFile')
             .addEventListener('change', function() {
             
-            var fr=new FileReader();
-            fr.onload=function(){
-                document.getElementById('output')
-                        .textContent=fr.result;
+            let reader = new FileReader();
+            reader.onload = function(){
+                document.getElementById("drop_zone").style.display="none";
+                document.getElementById("userTextArea").style.display="block";
+                document.getElementById('userTextArea').value=reader.result;
             }
             
-            fr.readAsText(this.files[0]);
+            reader.readAsText(this.files[0]);
+
         })
         </script>
     </main>
