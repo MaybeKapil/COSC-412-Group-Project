@@ -135,8 +135,11 @@ main.active {
     text-align: center;
     line-height: 30px;
     background-color: rgb(251, 251, 209);
+    display:block;
 }
-
+#userTextArea {
+    display:block;
+}
 .disableSelect {
     user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
