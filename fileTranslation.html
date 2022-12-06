@@ -9,20 +9,27 @@
     <title>TU Translate</title>
     <script src="js/swapLanguages.js" type="text/javascript"></script>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1264.0.js"></script>
-    <script src="src/translate.js"></script>
+    <script src="js/translate.js"></script>
+    <script src="js/textToSpeech.js"></script>
+    <script src="js/copyToClipboard.js"></script>
 </head>
 <body>
     <script src="js/nav_bar.js" type="text/javascript"></script>
     
     <main>
-        File Translation
-        <br> <br>
+        <h1>File Translation</h1>
 
-        Choose language you are translating from: 
-        <select name="srcLang" id="srcLangSelect">
-        </select><br><br>
+        <p>Choose language you are translating from: 
+            <!-- 
+                This select can be made so that every time the select value is changed, it translates the text.
+                It works but the issue is we don't want to burn through characters since we're limited to 2 million.
+                <select name="srcLang" id="srcLangSelect" onchange="translateUserText()"> -->
+            <select name="srcLang" id="srcLangSelect">
+            </select>
+        </p>
         
         <script src="js/dragAndDrop.js"></script>
+
         <div
             id="drop_zone"
             class="disableSelect"
@@ -36,28 +43,56 @@
                 </form>
             </div>
         </div>
-
-        <textarea id="userTextArea" name="userText" style="width:100%; font-size: 16pt" rows="6" cols="60" placeholder=" Enter text"></textarea><br>
-
+        <div class="textAreaContainer">
+            <!-- 
+                This textarea can be made so that every time the user makes an input, it translates the text.
+                It works but the issue is we don't want to burn through characters since we're limited to 2 million.
+                <textarea id="userTextArea" name="userText" oninput="translateUserText()" 
+                    style="width:100%; font-size: 16pt" rows="6" cols="60" placeholder=" Enter text"></textarea><br> -->
+            <textarea id="userTextArea" name="userText" 
+                rows="6" cols="60" placeholder="Enter text"></textarea><br>
+            <div class="col" style="float: left">
+                <button class="swapSrcAndDstLangButton">
+                    <img src="svg\text-to-speech-svgrepo-com.svg" alt="Text-to-Speech"/></button>
+            </div>
+        </div>
         <br>
         
         <div class="swapSrcAndDstLang">
-            <button class="swapSrcAndDstLangButton" onclick="swapLang()">
-                <img src="svg/swap_vert.svg" alt="Swap Icon"/>
-                Swap Languages
-            </button>
+            <button class="swapSrcAndDstLangButton" onclick="swapLang(), translateUserText()">
+                <img src="svg/swap_vert.svg" alt="Swap Icon"/></button>
         </div>
 
         <br>
         Choose language to translate to:
+        <!-- 
+            This select can be made so that every time the select value is changed, it translates the text.
+            It works but the issue is we don't want to burn through characters since we're limited to 2 million.
+            <select name="dstLang" id="dstLangSelect" onchange="translateUserText()"> -->
         <select name="dstLang" id="dstLangSelect">
         </select><br><br>
-        <button onclick="translateUserText()">Click to Translate!</button>
+        <button id="translateText" style="height:32px" onclick="translateUserText()">Click to Translate!</button>
         
         <br><br>
-        Translated Text:<br>
-        <textarea id="outputTextArea" name="outputText" style="width:100%; font-size: 16pt" rows="6" cols="60" disabled placeholder=" Translation" ></textarea>
+        Translated Text:
+        <br>
+        <div class="textAreaContainer">
+            <textarea id="outputTextArea" name="outputText" 
+                rows="6" cols="60" disabled placeholder="Translation" ></textarea>
+            <div class="row">
+                <div class="col" style="float: left">
+                    <button id="outputTTS" class="textToSpeechButton" onclick="speakText(this.id)">
+                        <img src="svg\text-to-speech-svgrepo-com.svg" alt="Text-to-Speech"/></button>
+                </div>
+            </div>
+        </div>
         
+        <audio id="audioPlayback" controls hidden>
+            <source id="audioSource" type="audio/mp3" src="">
+        </audio>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
+
+
         <script type="text/javascript">
         document.getElementById("userTextArea").style.display="none";
         document.getElementById('inputFile')
@@ -76,8 +111,6 @@
         </script>
     </main>
 
-   
-    
     <script src="js/menuToggle.js"></script>
     <script src="js/langList.js"></script>
     <script src="js/populateLangDropDown.js"></script>
