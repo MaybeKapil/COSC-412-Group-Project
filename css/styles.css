@@ -45,6 +45,7 @@ body{
     margin: 10px 0 5px;
 }
 
+/* No clue what this is for */
 .header_nav_bar .sidebar .profile p{
     color: rgb(206, 240, 253);
     font-size: 14px;
@@ -53,7 +54,7 @@ body{
 .header_nav_bar .sidebar ul li a{
     display: block;
     padding: 13px 30px;
-    border-bottom: 1px solid #10558d;
+    border-bottom: 1px solid #FFBB00;
     color: rgb(241, 237, 237);
     font-size: 16px;
     position: relative;
@@ -67,15 +68,15 @@ body{
 
 .header_nav_bar .sidebar ul li a:hover,
 .header_nav_bar .sidebar ul li a.active{
-    color: #0c7db1;
+    color: black;
 
     background:white;
-    border-right: 2px solid rgb(5, 68, 104);
+    border-right: 4px solid #FFBB00;;;
 }
 
 .header_nav_bar .sidebar ul li a:hover .icon,
 .header_nav_bar .sidebar ul li a.active .icon{
-    color: #0c7db1;
+    color: black;
 }
 
 .header_nav_bar .sidebar ul li a:hover:before,
@@ -104,7 +105,7 @@ body{
 }
 
 .header_nav_bar .section .top_navbar .hamburger a:hover{
-    color: #a2ecff;
+    color: #FFBB00;
 }
 
 body.active .header_nav_bar .sidebar{
@@ -120,6 +121,7 @@ main {
     margin-left: 245px;
     padding: 10px;
     transition: all 0.5s ease;
+    min-width: 300px;
     
 }
 
@@ -138,8 +140,36 @@ main.active {
     display:block;
 }
 #userTextArea {
-    display:block;
+    display: block;
 }
+
+textarea {
+    border: none;
+    outline: none;
+    max-width: 100%; 
+    max-height: 100%;
+    min-height: 29px;
+    resize: vertical;
+    width:100%; 
+    font-size: 16pt;
+}
+
+.textAreaContainer {
+    border-width:1.5px;
+    border-style:solid;
+    border-color:black;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+#tableContainer {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
 .disableSelect {
     user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
@@ -147,22 +177,76 @@ main.active {
    -moz-user-select: none; /* Firefox */
    -ms-user-select: none; /* Internet Explorer/Edge */
 }
-
-/* main .pageContent .fleContainer .fileContainerToolbar{
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin:0;
+#commonPhrasesTable th {
+    background-color: #FFBB00;
 }
 
-main .pageContent .fleContainer .fileContainerToolbar .languageSelectionPanel{
-    position: absolute;
-    z-index: 3;
+#commonPhrasesTable tr td {
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+    border-collapse: collapse ;
+    border: 1px black solid;
+    width: 50%;
+    cursor: pointer;  
+}
+
+#commonPhrasesTable tr:nth-child(odd) td:nth-child(even),
+#commonPhrasesTable tr:nth-child(even) td:nth-child(odd) {
+    background-color: rgb(243, 243, 243);
+}
+
+#commonPhrasesTable td:hover {
+    background-color:gray;
+}
+
+#commonPhrasesTable th {
+    font-size: 20px;
+    padding: 10px;
+}
+
+h1 {
+    text-align:center;
+    font-weight: 100;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.buttonContainer {
+    padding-top: 10px; 
+    padding-bottom:10px;
+    align-self:center;
+}
+
+button {
+    background-color:#FFBB00;
+    font: 14px proxima-nova, sans-serif;
+    color: #000000;
+    padding: 3px 5px;
+}
+
+button:hover {
+    background-color:white;
+    cursor: pointer;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+p {
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    font-size: 14pt;
+}
+
+#srcResult, #dstResult {
+    display: none;
+}
+
+#swapButtonContainer, #tableContainer {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
-
-main .pageContent .fileContainer {
-    display: flex;
-    width: 100%
-} */
