@@ -1,26 +1,18 @@
 function swapLang() {
-    const selectTag = document.querySelectorAll("select");
+    
+    const sourceLangValue = document.getElementById("srcLangSelect").value;
 
-    selectTag.forEach((tag, id) => {
-        const originalLangSelect = document.getElementById("originalLanguage");
-        const originalLangSelectValue = originalLangSelect.value;
+    if (sourceLangValue != 'auto') {
+        const sourceLang = document.getElementById("srcLangSelect");
+        const destinationLang = document.getElementById("dstLangSelect");
 
-        const translatedLangSelectValue = document.getElementById("translatedLanguage").value;
+        sourceLang.value = destinationLang.value;
+        destinationLang.value = sourceLangValue;
 
-        for(let country_code in countries) {
-            let selected;
-            if(id == 0 && country_code == translatedLangSelectValue) {
-                selected = "selected";
-            } else if (id == 1 && country_code == originalLangSelectValue) {
-                selected = "selected";
-            }
-        }
-    })
-
-    console.log("swapped lang");
-    console.log(originalLangSelect);
-    console.log(translatedLangSelectValue);
-
+        let srcText = document.getElementById("userTextArea").value;
+        document.getElementById("userTextArea").value = document.getElementById("outputTextArea").value;
+        document.getElementById("outputTextArea").value = srcText;
+    }
 }
 
 
