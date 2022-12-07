@@ -139,9 +139,6 @@ main.active {
     background-color: rgb(251, 251, 209);
     display:block;
 }
-#userTextArea {
-    display: block;
-}
 
 textarea {
     border: none;
@@ -155,6 +152,7 @@ textarea {
 }
 
 .textAreaContainer {
+    display: block;
     border-width:1.5px;
     border-style:solid;
     border-color:black;
@@ -197,7 +195,7 @@ textarea {
     background-color: rgb(243, 243, 243);
 }
 
-#commonPhrasesTable td:hover {
+#commonPhrasesTable tr:hover td:hover {
     background-color:gray;
 }
 
@@ -231,6 +229,10 @@ button:hover {
     cursor: pointer;
 }
 
+#translateText{
+    font-size: 16px;
+}
+
 select:hover {
     cursor: pointer;
 }
@@ -250,3 +252,8 @@ p {
     justify-content: center;
     align-items: center;
 }
+
+#commonPhrasesToolTip {
+    float: right;
+}
+
