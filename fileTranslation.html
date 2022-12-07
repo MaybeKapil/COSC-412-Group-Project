@@ -43,7 +43,8 @@
                 </form>
             </div>
         </div>
-        <div class="textAreaContainer">
+        <div id="srcTextAreaContainer" class="textAreaContainer">
+            <!-- <div class="textAreaContainer">
             <!-- 
                 This textarea can be made so that every time the user makes an input, it translates the text.
                 It works but the issue is we don't want to burn through characters since we're limited to 2 million.
@@ -51,39 +52,40 @@
                     style="width:100%; font-size: 16pt" rows="6" cols="60" placeholder=" Enter text"></textarea><br> -->
             <textarea id="userTextArea" name="userText" 
                 rows="6" cols="60" placeholder="Enter text"></textarea><br>
-            <div class="col" style="float: left">
-                <button class="swapSrcAndDstLangButton">
+            <div class="belowTextArea">
+                <button id="inputTTS" class="textToSpeechButton" onclick="speakText(userTextArea.id)" title="Text-to-speech">
                     <img src="svg\text-to-speech-svgrepo-com.svg" alt="Text-to-Speech"/></button>
+                <button id="copyInputText" onclick="copyText(userTextArea.id)" title="Copy">
+                    <img src="svg\copy-icon.svg" alt="Copy to clipboard"/></button>
+                <p id="srcResult"></p>
             </div>
         </div>
-        <br>
-        
-        <div class="swapSrcAndDstLang">
-            <button class="swapSrcAndDstLangButton" onclick="swapLang(), translateUserText()">
-                <img src="svg/swap_vert.svg" alt="Swap Icon"/></button>
+        <div id="swapButtonContainer" class="buttonContainer">
+            <button class="swapSrcAndDstLangButton" onclick="swapLang(), translateUserText()" title="Swap languages">
+                <img src="svg/swap_vert.svg" alt="Swap languages"/></button>
         </div>
-
-        <br>
-        Choose language to translate to:
-        <!-- 
-            This select can be made so that every time the select value is changed, it translates the text.
-            It works but the issue is we don't want to burn through characters since we're limited to 2 million.
-            <select name="dstLang" id="dstLangSelect" onchange="translateUserText()"> -->
-        <select name="dstLang" id="dstLangSelect">
-        </select><br><br>
-        <button id="translateText" style="height:32px" onclick="translateUserText()">Click to Translate!</button>
-        
-        <br><br>
-        Translated Text:
-        <br>
+        <p>
+            Choose language to translate to:
+            <!-- 
+                This select can be made so that every time the select value is changed, it translates the text.
+                It works but the issue is we don't want to burn through characters since we're limited to 2 million.
+                <select name="dstLang" id="dstLangSelect" onchange="translateUserText()"> -->
+            <select name="dstLang" id="dstLangSelect">
+            </select>
+        </p>
+        <div id="translateButtonContainer" class="buttonContainer">
+            <button id="translateText" onclick="translateUserText()" title="Translate">Translate</button>
+        </div>        
+        <p>Translated Text:</p>
         <div class="textAreaContainer">
             <textarea id="outputTextArea" name="outputText" 
-                rows="6" cols="60" disabled placeholder="Translation" ></textarea>
-            <div class="row">
-                <div class="col" style="float: left">
-                    <button id="outputTTS" class="textToSpeechButton" onclick="speakText(this.id)">
-                        <img src="svg\text-to-speech-svgrepo-com.svg" alt="Text-to-Speech"/></button>
-                </div>
+                rows="6" cols="60" disabled placeholder="Translation"></textarea>
+            <div class="col" style="float: left">
+                <button id="outputTTS" class="textToSpeechButton" onclick="speakText(outputTextArea.id)" title="Text-to-speech">
+                    <img src="svg\text-to-speech-svgrepo-com.svg" alt="Text-to-Speech"/></button>
+                <button id="copyOutputText" onclick="copyText(outputTextArea.id)" title="Copy">
+                    <img src="svg\copy-icon.svg" alt="Copy"/></button>
+                <p id="dstResult"></p>
             </div>
         </div>
         
@@ -94,14 +96,14 @@
 
 
         <script type="text/javascript">
-        document.getElementById("userTextArea").style.display="none";
+        document.getElementById("srcTextAreaContainer").style.display="none";
         document.getElementById('inputFile')
             .addEventListener('change', function() {
             
             let reader = new FileReader();
             reader.onload = function(){
                 document.getElementById("drop_zone").style.display="none";
-                document.getElementById("userTextArea").style.display="block";
+                document.getElementById("srcTextAreaContainer").style.display="block";
                 document.getElementById('userTextArea').value=reader.result;
             }
             
