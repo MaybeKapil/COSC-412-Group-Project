@@ -28,7 +28,7 @@
             <select name="srcLang" id="srcLangSelect">
             </select>
         </p> 
-        <div class="textAreaContainer">
+        <div id="srcTextAreaContainer" class="textAreaContainer">
             <!-- 
                 This textarea can be made so that every time the user makes an input, it translates the text.
                 It works but the issue is we don't want to burn through characters since we're limited to 2 million.
@@ -37,15 +37,15 @@
             <textarea id="userTextArea" name="userText" 
                 rows="6" cols="60" placeholder="Enter text"></textarea><br>
             <div class="belowTextArea">
-                <button id="inputTTS" class="textToSpeechButton" onclick="speakText(userTextArea.id)">
+                <button id="inputTTS" class="textToSpeechButton" onclick="speakText(userTextArea.id)" title="Text-to-speech">
                     <img src="svg\text-to-speech-svgrepo-com.svg" alt="Text-to-Speech"/></button>
-                <button id="copyInputText" onclick="copyText(userTextArea.id)">
+                <button id="copyInputText" onclick="copyText(userTextArea.id)" title="Copy">
                     <img src="svg\copy-icon.svg" alt="Copy to clipboard"/></button>
                 <p id="srcResult"></p>
             </div>
         </div>
         <div id="swapButtonContainer" class="buttonContainer">
-            <button class="swapSrcAndDstLangButton" onclick="swapLang(), translateUserText()">
+            <button class="swapSrcAndDstLangButton" onclick="swapLang(), translateUserText()" title="Swap languages">
                 <img src="svg/swap_vert.svg" alt="Swap languages"/></button>
         </div>
         <p>
@@ -58,16 +58,16 @@
             </select>
         </p>
         <div id="translateButtonContainer" class="buttonContainer">
-            <button id="translateText" style="font-size:16px;" onclick="translateUserText()">Click to Translate!</button>
+            <button id="translateText" onclick="translateUserText()" title="Translate">Translate</button>
         </div>
         <p>Translated Text:</p>
         <div class="textAreaContainer">
             <textarea id="outputTextArea" name="outputText" 
                 rows="6" cols="60" disabled placeholder="Translation"></textarea>
             <div class="col" style="float: left">
-                <button id="outputTTS" class="textToSpeechButton" onclick="speakText(outputTextArea.id)">
+                <button id="outputTTS" class="textToSpeechButton" onclick="speakText(outputTextArea.id)" title="Text-to-speech">
                     <img src="svg\text-to-speech-svgrepo-com.svg" alt="Text-to-Speech"/></button>
-                <button id="copyOutputText" onclick="copyText(outputTextArea.id)">
+                <button id="copyOutputText" onclick="copyText(outputTextArea.id)" title="Copy">
                     <img src="svg\copy-icon.svg" alt="Copy"/></button>
                 <p id="dstResult"></p>
             </div>
@@ -76,7 +76,11 @@
         <div id="tableContainer">
             <table align="left" id="commonPhrasesTable">
                 <tr>
-                    <th colspan="2">Common Phrases</th>
+                    <th colspan="2">Common Phrases
+                        <span id="commonPhrasesToolTip">
+                            <img src="svg\help-web-button-svgrepo-com.svg" alt="Common Phrases Help" title="Click on a common phrase to translate it" style="vertical-align: bottom">
+                        </span>
+                    </th>
                 </tr>
                 <tr>
                     <td>Hello, how are doing today?</td>
