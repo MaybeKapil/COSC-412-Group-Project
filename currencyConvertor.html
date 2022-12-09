@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TU Translate</title>
+    <script src="js\exchangeRate.js"></script>
 </head>
 <body>
 	
@@ -14,6 +15,22 @@
     
     <main>
         Currency Convertor
+        <div>
+            <span>
+                <input id="currencyFrom" title="From" placeholder="Converting fromm">
+            </span>
+            <span>
+                <input id="currencyTo" title="To" placeholder="Converting to">
+            </span>
+        </div>
+            <span>
+                <input id="currencyAmount" title="Amount" placeholder="Amount">
+            </span>
+            <span>
+                <input id="convertedAmount" disabled title="Converted Amount" placeholder="Exchange Amount">
+            </span>
+
+        <button placeholder="Convert currency" onclick="getExchangeRate()">Convert</button>
     </main>
     
     <script src="js/menuToggle.js"></script>
