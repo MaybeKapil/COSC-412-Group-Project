@@ -257,3 +257,12 @@ p {
     float: right;
 }
 
+#logo {
+    color: white; 
+    display:table;
+    margin: 0 auto;
+    font-family: "Overpass", Courier;
+    font-size: 22px;
+    font-weight: 600;
+    color:#FFBB00;
+}

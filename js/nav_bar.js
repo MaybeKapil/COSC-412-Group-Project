@@ -9,6 +9,7 @@ template.innerHTML = `
                         <i class="fas fa-bars"></i>
                     </a>
                 </div>
+                <span id="logo"> TU TRANSLATE </span>
             </div>
     </div>
         <div class="sidebar">

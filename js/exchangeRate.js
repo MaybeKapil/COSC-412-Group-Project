@@ -15,5 +15,6 @@ async function getExchangeRate() {
     const response = await fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`, requestOptions)
     const data =  await response.json();
     document.getElementById("convertedAmount").value = data.result;
+    document.getElementById("exchangeRate").value = data.info.rate;
 
 }
