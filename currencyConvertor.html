@@ -14,22 +14,28 @@
     <script src="js/nav_bar.js" type="text/javascript"></script>
     
     <main>
-        Currency Convertor
+        <h1>Currency Convertor</h1>
         <div>
             <span>
-                <input id="currencyFrom" title="From" placeholder="Converting fromm">
+                <input id="currencyFrom" title="From" placeholder="Converting from">
             </span>
             <span>
                 <input id="currencyTo" title="To" placeholder="Converting to">
             </span>
         </div>
+        <div>
             <span>
                 <input id="currencyAmount" title="Amount" placeholder="Amount">
+            </span>
+        </div>
+        <div>
+            <span>
+                <input id="exchangeRate" disabled title="Exchange Rate" placeholder="Exchange Rate">
             </span>
             <span>
                 <input id="convertedAmount" disabled title="Converted Amount" placeholder="Exchange Amount">
             </span>
-
+        </div>
         <button placeholder="Convert currency" onclick="getExchangeRate()">Convert</button>
     </main>
     
