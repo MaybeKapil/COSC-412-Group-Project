@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TU Translate</title>
+    <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+</head>
+<body>
+    <div class = "container">
+        <div class = "row">
+            <div>
+                <img src="png/towson_university_tiger_logo.png" alt="Format - Towson University Tiger Logo" width = "10%" height = "10%">
+                <h2>Login Here</h2>
+                <form action = "index.html" id = "login-form">
+                    <label>Username</label>
+                    <input type = "text" id = "login-uname" placeholder = "Enter Username" required>
+                    <label>Password</label>
+                    <input type = "password" id = "login-pword" placeholder = "Enter Password" required>
+                    <input type = "submit" name = "submit" value = "Login">
+                </form>
+                <div id = "login-error"></div>
+                <br />
+                <h2>Sign Up Here</h2>
+                <form id = "su-form">
+                    <label>Username</label>
+                    <input type = "text" id = "su-uname" placeholder = "Enter Username" required>
+                    <label>Password</label>
+                    <input type = "password" id = "su-pword" placeholder = "Enter Password" required>
+                    <input type = "submit" name = "submit" value = "Signup">
+                </form>
+                <div id = "su-error"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        userbase.init({ appId: '823cb385-7f07-4b2f-88d9-81e8555c3945' })
+
+        function handleLogin(e) {
+            e.preventDefault()
+
+            const username = document.getElementById('login-username').value
+            const password = document.getElementById('login-password').value
+
+            userbase.signIn({ username, password })
+            .then((user) => alert('You Signed In!'))
+            .catch((e) => document.getElementById('login-error').innerHTML = e)
+        }
+      
+        function handleSignUp(e) {
+          e.preventDefault()
+      
+          const username = document.getElementById('su-uname').value
+          const password = document.getElementById('su-pword').value
+      
+          userbase.signUp({ username, password })
+            .then((user) => alert('You Signed In!'))
+            .catch((e) => document.getElementById('su-error').innerHTML = e)
+        }
+      
+        document.getElementById('signup-form').addEventListener('submit', handleSignUp)
+      </script>
+</body>
+</html>
