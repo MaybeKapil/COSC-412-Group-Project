@@ -1,10 +1,19 @@
 function translateUserText() {
+  
+  // encoder for counting character bytes for translation
+  const encoder = new TextEncoder();
 
-  if (document.getElementById("userTextArea").value != '') {
-    let srcText = document.getElementById("userTextArea").value;
+  // gets text without leading an trailing white-spaces (saves bytes)
+  const  srcText = document.getElementById("userTextArea").value.trim();
+  const textBytes = encoder.encode(srcText).length;
+
+  if (textBytes == 0) {
+    console.log("Error: Text only contains white-spaces.")
+  }
+  else if (textBytes >= 1 && textBytes <=10000) {
 
     AWS.config.region = "us-east-1";
-    AWS.config.credentials = new AWS.Credentials('AKIASDZ6DZUKT2KV2YWL', 'NYQtIU8CfUwtQ3tM+qLbJbWi69OTRvOe9TZyKOdx');
+    AWS.config.credentials = new AWS.Credentials('enter_here', 'enter_here');
 
     const translate = new AWS.Translate();
 
@@ -25,5 +34,8 @@ function translateUserText() {
         document.getElementById("outputTextArea").value = data['TranslatedText'];
       }
     });
+  }
+  else {
+    console.log("Error: Text must be at least 1 byte and at most 10,000 bytes.");
   }
 }
