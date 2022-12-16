@@ -4,7 +4,7 @@ function speakText(buttonID) {
     // Initialize the Amazon Cognito credentials provider
     AWS.config.region = 'us-east-1';
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: 'us-east-1:08cba64f-3291-4366-a2e0-4d28bd7e42a2'});
+        IdentityPoolId: 'ENTER_IDENTITY_POOL'});
     
     // Create the JSON parameters for getSynthesizeSpeechUrl
     var speechParams = {
