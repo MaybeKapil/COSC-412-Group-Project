@@ -34,19 +34,25 @@
                 This textarea can be made so that every time the user makes an input, it translates the text.
                 It works but the issue is we don't want to burn through characters since we're limited to 2 million.
                 <textarea id="userTextArea" name="userText" oninput="translateUserText()" 
-                    style="width:100%; font-size: 16pt" rows="6" cols="60" placeholder=" Enter text"></textarea><br> -->
+                    style="width:100%; font-size: 16pt" rows="6" cols="60" placeholder=" Enter text"></textarea> -->
             <textarea id="userTextArea" name="userText" 
-                rows="6" cols="60" placeholder="Enter text"></textarea><br>
+                rows="6" cols="60" placeholder="Enter text"></textarea>
             <div class="belowTextArea">
                 <div>
-                <button id="inputTTS" class="textToSpeechButton" onclick="speakText(userTextArea.id)" title="Text-to-speech">
+                <button id="inputTTS" class="textToSpeechButton" onclick="speakText(userTextArea.value, srcVoiceLangSelect.value, srcVoiceNameSelect.id)" title="Text-to-speech">
                     <img src="svg\text-to-speech-svgrepo-com.svg" alt="Text-to-Speech"/></button>
                 <button id="copyInputText" onclick="copyText(userTextArea.id)" title="Copy">
                     <img src="svg\copy-icon.svg" alt="Copy to clipboard"/></button>
                 </div>
                 <div>
-                    <select name="srcVoice" id="srcVoiceSelect">
-                    </select>
+                    <span>
+                        <select name="srcVoiceLang" id="srcVoiceLangSelect">
+                        </select>
+                    </span>
+                    <span>
+                        <select name="srcVoiceName" id="srcVoiceNameSelect">
+                        </select>
+                    </span>                    
                 </div>
                 <div>
                     <p id="srcResult"></p>
@@ -75,14 +81,21 @@
                 rows="6" cols="60" disabled placeholder="Translation"></textarea>
             <div class="belowTextArea">
                 <div>
-                <button id="outputTTS" class="textToSpeechButton" onclick="speakText(outputTextArea.id)" title="Text-to-speech">
+                <button id="outputTTS" class="textToSpeechButton" onclick="speakText(outputTextArea.value, dstVoiceLangSelect.value, dstVoiceNameSelect.value)" title="Text-to-speech">
                     <img src="svg\text-to-speech-svgrepo-com.svg" alt="Text-to-Speech"/></button>
                 <button id="copyOutputText" onclick="copyText(outputTextArea.id)" title="Copy">
                     <img src="svg\copy-icon.svg" alt="Copy to clipboard"/></button>
                 </div>
                 <div>
-                    <select name="dstVoice" id="dstVoiceSelect">
-                    </select>
+                    <span>
+                        <select name="dstVoiceLang" id="dstVoiceLangSelect">
+                        </select>
+                    </span>
+                    <span>
+                        <select name="dstVoiceName" id="dstVoiceNameSelect">
+                        </select>
+                    </span>
+                    
                 </div>
                 <div>
                     <p id="dstResult"></p>
@@ -141,8 +154,14 @@
     
     <script src="js/menuToggle.js"></script>
     <script src="js/langList.js"></script>
-    <script src="js/voiceList.js"></script>   
-    <script src="js/populateDropDown.js"></script>
+    <script src="js/voiceLangList.js"></script>
+    <script src="js/voiceNameList.js"></script>   
+    <script  src="js/populateDropDown.js"></script>
+    <script>
+        populateLangDropDown();
+        populateVoiceLangDropDown();
+        populateVoiceNameDropDown();
+    </script>
     <script src="js/clickableCommonPhrasesTable.js"></script>
 </body>
 </html>
