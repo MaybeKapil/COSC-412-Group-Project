@@ -29,7 +29,7 @@ function translateUserText() {
 
     translate.translateText(params, function (err, data) {
       if (err) {
-        console.log("hi" + err, err.stack);
+        console.log(err, err.stack);
       }
       else {
         document.getElementById("outputTextArea").value = data['TranslatedText'];
