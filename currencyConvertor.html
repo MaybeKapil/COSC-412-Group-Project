@@ -45,6 +45,16 @@
             <button id="convertCurrencyButton" placeholder="Convert currency" onclick="getExchangeRate()">Convert</button>
         </div>        
     </main>
+
+    <script>
+        function resetAmountIfEmpty() {
+        
+          let amount = document.getElementById("currencyAmount");
+          if(amount.value == "") {
+              amount.value = 1;
+          }
+        }
+        </script>
     
     <script src="js/menuToggle.js"></script>
     <script src="js/currencyList.js"></script>
