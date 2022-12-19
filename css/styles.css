@@ -266,3 +266,23 @@ p {
     font-weight: 600;
     color:#FFBB00;
 }
+
+.currencyInputArea {
+    padding-top: 20px;
+}
+
+.currencyInput {
+    font-size: 20px;
+}
+
+.currencySelection {
+    font-size: 20px;
+}
+
+#convertCurrencyButtonArea {
+    padding: 20px;
+}
+
+#convertCurrencyButton {
+    font-size: 20px;
+}
