@@ -17,15 +17,17 @@
         <h1>Currency Convertor</h1>
         <div>
             <span>
-                <input id="currencyFrom" title="From" placeholder="Converting from">
+                Coverting from:
+                <select name="currencyFrom" class="currencySelection"></select>
             </span>
             <span>
-                <input id="currencyTo" title="To" placeholder="Converting to">
+                Converting to:
+                <select name="currencyTo" class="currencySelection"></select>
             </span>
         </div>
         <div>
             <span>
-                <input id="currencyAmount" title="Amount" placeholder="Amount">
+                <input type="number" name="currencyAmount" title="Amount" placeholder="Amount">
             </span>
         </div>
         <div>
@@ -40,5 +42,10 @@
     </main>
     
     <script src="js/menuToggle.js"></script>
+    <script src="js/currencyList.js"></script>
+    <script src="js/populateDropDown.js"></script>
+    <script>
+        populateCurrencyDropDown();
+    </script>
 </body>
 </html>
