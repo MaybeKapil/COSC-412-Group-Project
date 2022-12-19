@@ -18,16 +18,16 @@
         <div>
             <span>
                 Coverting from:
-                <select name="currencyFrom" class="currencySelection"></select>
+                <select id="currencyFrom" name="currencyFrom" class="currencySelection"></select>
             </span>
             <span>
                 Converting to:
-                <select name="currencyTo" class="currencySelection"></select>
+                <select id="currencyTo" name="currencyTo" class="currencySelection"></select>
             </span>
         </div>
         <div class="currencyInputArea">
             <span >
-                <input type="number" name="currencyAmount" class="currencyInput" title="Amount" placeholder="Amount">
+                <input type="number" id="currencyAmount" name="currencyAmount" class="currencyInput" title="Amount" placeholder="Amount">
             </span>
         </div>
         <div class="currencyInputArea">
@@ -49,5 +49,6 @@
     <script>
         populateCurrencyDropDown();
     </script>
+    <script src="js/exchangeRate.js"></script>
 </body>
 </html>
