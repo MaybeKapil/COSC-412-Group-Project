@@ -4,10 +4,6 @@ function speakText(textAreaValue, voiceLangSelectValue, voiceNameSelectValue) {
     AWS.config.region = 'us-east-1';
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
         IdentityPoolId: 'us-east-1:08cba64f-3291-4366-a2e0-4d28bd7e42a2'});
-    
-    console.log(textAreaValue);
-    console.log(voiceLangSelectValue);
-    console.log(voiceNameSelectValue);
 
     //Create the JSON parameters for getSynthesizeSpeechUrl
     const speechParams = {
