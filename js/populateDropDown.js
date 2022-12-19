@@ -45,12 +45,12 @@ function populateVoiceLangDropDown() {
 }
 
 function populateVoiceNameDropDown() {
-    const selectsCurrency = [
+    const selectsVocieName = [
         { type: "src", def: "Zeina" },
         { type: "dst", def: "Zeina" },
     ];
 
-    for (const [i, { type, def }] of selectsVoiceName.entries()) {
+    for (const [i, { type, def }] of selectsVocieName.entries()) {
         document.querySelector(`select[name=${type}VoiceName]`).append(
             ...Object.entries(voiceName).slice(0).map(
                 ([code, name]) => {
