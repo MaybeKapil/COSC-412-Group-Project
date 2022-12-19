@@ -13,6 +13,7 @@
     <script src="js/translate.js"></script>
     <script src="js/textToSpeech.js"></script>
     <script src="js/copyToClipboard.js"></script>
+    <script src="js/validateFileType.js"></script>
 </head>
 <body>
     <script src="js/nav_bar.js" type="text/javascript"></script>
@@ -29,8 +30,6 @@
             </select>
         </p>
         
-        <script src="js/dragAndDrop.js"></script>
-
         <div
             id="drop_zone"
             class="disableSelect"            
@@ -38,11 +37,11 @@
             <p>Upload File </p>
             <div class = "uploadFileButton">
                 <form action="uploadFile">
-                    <input type="file" id="inputFile" name="myFile">
+                    <input type="file" id="inputFile" accept=".txt" name="myFile" onchange="return fileValidation()">
                 </form>
             </div>
         </div>
-        <div id="srcTextAreaContainer" class="textAreaContainer">
+        <div id="srcTextAreaContainer" class="textAreaContainer" style="display:none">
             <!-- 
                 This textarea can be made so that every time the user makes an input, it translates the text.
                 It works but the issue is we don't want to burn through characters since we're limited to 2 million.
@@ -89,7 +88,7 @@
             <button id="translateText" onclick="translateUserText()" title="Translate">Translate</button>
         </div>        
         <p>Translated Text:</p>
-        <div class="textAreaContainer">
+        <div id="dstTextAreaContainer" class="textAreaContainer">
             <textarea id="outputTextArea" name="outputText" 
                 rows="6" cols="60" disabled placeholder="Translation"></textarea>
             <div class="belowTextArea">
@@ -119,25 +118,8 @@
         <audio id="audioPlayback" controls hidden>
             <source id="audioSource" type="audio/mp3" src="">
         </audio>
-        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
-
-
-        <script type="text/javascript">
-        document.getElementById("srcTextAreaContainer").style.display="none";
-        document.getElementById('inputFile')
-            .addEventListener('change', function() {
-            
-            let reader = new FileReader();
-            reader.onload = function(){
-                document.getElementById("drop_zone").style.display="none";
-                document.getElementById("srcTextAreaContainer").style.display="block";
-                document.getElementById('userTextArea').value=reader.result;
-            }
-            
-            reader.readAsText(this.files[0]);
-
-        })
-        </script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>     
+        
     </main>
 
     <script src="js/menuToggle.js"></script>
