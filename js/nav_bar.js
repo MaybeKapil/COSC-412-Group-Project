@@ -43,7 +43,7 @@ template.innerHTML = `
                     </a>
                 </li>
                 <li>
-                    <a href="other.html">
+                    <a href="about.html">
                         <span class="icon"><i class="fas fa-question-circle"></i></span>
                         <span class="item">Others</span>
                     </a>
