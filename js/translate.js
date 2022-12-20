@@ -13,8 +13,8 @@ function translateUserText() {
   else if (textBytes >= 1 && textBytes <=10000) {
 
     AWS.config.region = "us-east-1";
-    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-      IdentityPoolId: 'us-east-1:08cba64f-3291-4366-a2e0-4d28bd7e42a2'});
+    
+    AWS.config.credentials = new AWS.Credentials(cred.awsAccessKeyId, cred.awsSecretAccessKey);
 
     const translate = new AWS.Translate();
 
