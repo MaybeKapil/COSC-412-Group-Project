@@ -1,5 +1,4 @@
 function swapLang() {
-    
     const sourceLangValue = document.getElementById("srcLangSelect").value;
 
     if (sourceLangValue != 'auto') {
