@@ -22,19 +22,10 @@
         <h1>Text Translation</h1>
 	
         <p>Choose language to translate from:
-        <!-- 
-            This select can be made so that every time the select value is changed, it translates the text.
-            It works but the issue is we don't want to burn through characters since we're limited to 2 million.
-            <select name="srcLang" id="srcLangSelect" onchange="translateUserText()"> -->
             <select name="srcLang" id="srcLangSelect">
             </select>
         </p> 
         <div id="srcTextAreaContainer" class="textAreaContainer">
-            <!-- 
-                This textarea can be made so that every time the user makes an input, it translates the text.
-                It works but the issue is we don't want to burn through characters since we're limited to 2 million.
-                <textarea id="userTextArea" name="userText" oninput="translateUserText()" 
-                    style="width:100%; font-size: 16pt" rows="6" cols="60" placeholder=" Enter text"></textarea> -->
             <textarea id="userTextArea" name="userText" 
                 rows="6" cols="60" placeholder="Enter text"></textarea>
             <div class="belowTextArea">
@@ -60,21 +51,18 @@
             </div>
         </div>
         <div id="swapButtonContainer" class="buttonContainer">
-            <button class="swapSrcAndDstLangButton" onclick="swapLang(), translateUserText()" title="Swap languages">
+            <button  disabled id="swapSrcAndDstLangButton" class="swapSrcAndDstLangButton" onclick="swapLang(), translateUserText()" title="Swap languages">
                 <img src="svg/swap_vert.svg" alt="Swap languages"/></button>
         </div>
         <p>
             Choose language to translate to:
-            <!-- 
-                This select can be made so that every time the select value is changed, it translates the text.
-                It works but the issue is we don't want to burn through characters since we're limited to 2 million.
-                <select name="dstLang" id="dstLangSelect" onchange="translateUserText()"> -->
             <select name="dstLang" id="dstLangSelect">
             </select>
         </p>
-        <div id="translateButtonContainer" class="buttonContainer">
+        <div id="translateButtonContainer" class="buttonContainer">            
             <button id="translateText" onclick="translateUserText()" title="Translate">Translate</button>
         </div>
+
         <p>Translated Text:</p>
         <div id="dstTextAreaContainer" class="textAreaContainer">
             <textarea id="outputTextArea" name="outputText" 
@@ -148,9 +136,14 @@
         </div>
         <audio id="audioPlayback" controls hidden>
             <source id="audioSource" type="audio/mp3" src="">
-        </audio>
-        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
+        </audio>        
     </main>
+
+    // Scripts 
+
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
+
+    <script src="js/enableAutoTranslation.js"></script>
     
     <script src="js/menuToggle.js"></script>
     <script src="js/langList.js"></script>
@@ -161,6 +154,9 @@
         populateLangDropDown();
         populateVoiceLangDropDown();
         populateVoiceNameDropDown();
+    </script>
+    <script>
+        activateAutoTranslation(false);
     </script>
     <script src="js/clickableCommonPhrasesTable.js"></script>
 </body>

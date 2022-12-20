@@ -21,11 +21,7 @@
     <main>
         <h1>File Translation</h1>
 
-        <p>Choose language you are translating from: 
-            <!-- 
-                This select can be made so that every time the select value is changed, it translates the text.
-                It works but the issue is we don't want to burn through characters since we're limited to 2 million.
-                <select name="srcLang" id="srcLangSelect" onchange="translateUserText()"> -->
+        <p>Choose language you are translating from:
             <select name="srcLang" id="srcLangSelect">
             </select>
         </p>
@@ -42,11 +38,6 @@
             </div>
         </div>
         <div id="srcTextAreaContainer" class="textAreaContainer" style="display:none">
-            <!-- 
-                This textarea can be made so that every time the user makes an input, it translates the text.
-                It works but the issue is we don't want to burn through characters since we're limited to 2 million.
-                <textarea id="userTextArea" name="userText" oninput="translateUserText()" 
-                    style="width:100%; font-size: 16pt" rows="6" cols="60" placeholder=" Enter text"></textarea> -->
             <textarea id="userTextArea" name="userText" 
                 rows="6" cols="60" placeholder="Enter text"></textarea>
             <div class="belowTextArea">
@@ -77,10 +68,6 @@
         </div>
         <p>
             Choose language to translate to:
-            <!-- 
-                This select can be made so that every time the select value is changed, it translates the text.
-                It works but the issue is we don't want to burn through characters since we're limited to 2 million.
-                <select name="dstLang" id="dstLangSelect" onchange="translateUserText()"> -->
             <select name="dstLang" id="dstLangSelect">
             </select>
         </p>
@@ -118,10 +105,17 @@
         <audio id="audioPlayback" controls hidden>
             <source id="audioSource" type="audio/mp3" src="">
         </audio>
-        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>     
-        
     </main>
 
+    // Scripts 
+
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
+
+    <script src="js/enableAutoTranslation.js"></script>
+    <script>
+        //we don't want to burn through characters since we're limited to 2 million
+        activateAutoTranslation(false);        
+    </script>
     <script src="js/menuToggle.js"></script>
     <script src="js/langList.js"></script>
     <script src="js/voiceLangList.js"></script>
@@ -131,6 +125,9 @@
         populateLangDropDown();
         populateVoiceLangDropDown();
         populateVoiceNameDropDown();
+    </script>
+    <script>
+        activateAutoTranslation(false);
     </script>
 </body>
 </html>
