@@ -8,8 +8,8 @@ const create = (tag = "div", options = {}, children = []) => {
 
 function populateLangDropDown() {
     const selectsLang = [
-        { type: "src", def: "en-US" },
-        { type: "dst", def: "en-US" },
+        { type: "src", def: "auto" },
+        { type: "dst", def: "en" },
     ];
 
     for (const [i, { type, def }] of selectsLang.entries()) {
