@@ -37,12 +37,6 @@ template.innerHTML = `
                     </a>
                 </li>
                 <li>
-                    <a href="roadmap.html">
-                        <span class="icon"><i class="fas fa-calendar"></i></span>
-                        <span class="item">Roadmap</span>
-                    </a>
-                </li>
-                <li>
                     <a href="about.html">
                         <span class="icon"><i class="fas fa-question-circle"></i></span>
                         <span class="item">About</span>
