@@ -156,6 +156,14 @@
         populateVoiceNameDropDown();
     </script>
     <script>
+        document.getElementById("srcLangSelect").addEventListener("change", function() {
+            if (document.getElementById("srcLangSelect").value == "auto") {
+                document.getElementById("swapSrcAndDstLangButton").disabled = true;
+            }
+            else {
+                document.getElementById("swapSrcAndDstLangButton").disabled = false;
+            }
+    });
         activateAutoTranslation(false);
     </script>
     <script src="js/clickableCommonPhrasesTable.js"></script>
